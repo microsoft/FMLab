@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxForm xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Microsoft.Dynamics.AX.Metadata.V6">
+	<Name>FmtCustomer</Name>
+	<SourceCode>
+		<Methods xmlns="">
+			<Method>
+				<Name>classDeclaration</Name>
+				<Source><![CDATA[
+[Form] 
+public class FmtCustomer extends FormRun
+{
+    boolean contextSet;
+
+}
+]]></Source>
+			</Method>
+		</Methods>
+		<DataSources xmlns="">
+			<DataSource>
+				<Name>FmtCustomer</Name>
+				<Methods>
+					<Method>
+						<Name>research</Name>
+						<Source><![CDATA[
+        public void research(boolean _retainPosition = false)
+{
+    contextSet = false;
+    super(_retainPosition);
+}
+
+]]></Source>
+					</Method>
+				</Methods>
+				<Fields />
+			</DataSource>
+		</DataSources>
+		<DataControls xmlns="" />
+	</SourceCode>
+	<DataSources>
+		<AxFormDataSource xmlns="">
+			<Name>FmtCustomer</Name>
+			<Table>FmtCustomer</Table>
+			<Fields>
+				<AxFormDataSourceField>
+					<DataField>Address</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>AddressID</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>AuditStatus</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>CCExpiryDate</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>CellPhone</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>CreditCardNum</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>CustGroup</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>DriverLicense</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>Email</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>FirstName</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>Image</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>LastName</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>LicenseImage</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>Partition</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>RecId</DataField>
+				</AxFormDataSourceField>
+				<AxFormDataSourceField>
+					<DataField>TableId</DataField>
+				</AxFormDataSourceField>
+			</Fields>
+			<ReferencedDataSources />
+			<DataSourceLinks />
+			<DerivedDataSources />
+		</AxFormDataSource>
+	</DataSources>
+	<Design>
+		<Style xmlns="">DetailsFormMaster</Style>
+		<Controls xmlns="">
+			<AxFormControl xmlns=""
+				i:type="AxFormActionPaneControl">
+				<Name>ApplicationBar</Name>
+				<ElementPosition>715827882</ElementPosition>
+				<FilterExpression>%1</FilterExpression>
+				<Skip>Yes</Skip>
+				<Type>ActionPane</Type>
+				<VerticalSpacing>-1</VerticalSpacing>
+				<Width>0</Width>
+				<FormControlExtension
+					i:nil="true" />
+				<Controls />
+				<AlignChild>No</AlignChild>
+				<AlignChildren>No</AlignChildren>
+			</AxFormControl>
+			<AxFormControl xmlns=""
+				i:type="AxFormTabControl">
+				<Name>GridDetailsTab</Name>
+				<AlignControl>No</AlignControl>
+				<ElementPosition>1431655764</ElementPosition>
+				<FilterExpression>%1</FilterExpression>
+				<Height>0</Height>
+				<Type>Tab</Type>
+				<VerticalSpacing>-1</VerticalSpacing>
+				<Width>0</Width>
+				<FormControlExtension
+					i:nil="true" />
+				<Controls>
+					<AxFormControl xmlns=""
+						i:type="AxFormTabPageControl">
+						<Name>TabPageGrid</Name>
+						<ElementPosition>1610612733</ElementPosition>
+						<FilterExpression>%1</FilterExpression>
+						<HeightMode>Auto</HeightMode>
+						<Type>TabPage</Type>
+						<VerticalSpacing>-1</VerticalSpacing>
+						<WidthMode>Auto</WidthMode>
+						<FormControlExtension
+							i:nil="true" />
+						<Controls>
+							<AxFormControl xmlns=""
+								i:type="AxFormGridControl">
+								<Name>MainGrid</Name>
+								<ElementPosition>1431655764</ElementPosition>
+								<FilterExpression>%1</FilterExpression>
+								<Type>Grid</Type>
+								<VerticalSpacing>-1</VerticalSpacing>
+								<FormControlExtension
+									i:nil="true" />
+								<Controls />
+								<DefaultAction>GridDefaultActionButton</DefaultAction>
+							</AxFormControl>
+							<AxFormControl xmlns=""
+								i:type="AxFormCommandButtonControl">
+								<Name>GridDefaultActionButton</Name>
+								<Skip>Yes</Skip>
+								<Type>CommandButton</Type>
+								<Visible>No</Visible>
+								<FormControlExtension
+									i:nil="true" />
+								<Command>DetailsView</Command>
+							</AxFormControl>
+						</Controls>
+						<PanelStyle>Grid</PanelStyle>
+						<Scrollbars>Auto</Scrollbars>
+						<Style>DetailsFormGrid</Style>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormTabPageControl">
+						<Name>TabPageDetails</Name>
+						<ElementPosition>1073741822</ElementPosition>
+						<FilterExpression>%1</FilterExpression>
+						<HeightMode>Auto</HeightMode>
+						<Type>TabPage</Type>
+						<VerticalSpacing>-1</VerticalSpacing>
+						<WidthMode>Auto</WidthMode>
+						<FormControlExtension
+							i:nil="true" />
+						<Controls>
+							<AxFormControl xmlns=""
+								i:type="AxFormGroupControl">
+								<Name>TitleGroup</Name>
+								<ElementPosition>1073741822</ElementPosition>
+								<FilterExpression>%1</FilterExpression>
+								<Type>Group</Type>
+								<VerticalSpacing>-1</VerticalSpacing>
+								<FormControlExtension
+									i:nil="true" />
+								<Controls>
+									<AxFormControl xmlns=""
+										i:type="AxFormStringControl">
+										<Name>HeaderTitle</Name>
+										<ElementPosition>1431655764</ElementPosition>
+										<FilterExpression>%1</FilterExpression>
+										<Skip>Yes</Skip>
+										<Type>String</Type>
+										<VerticalSpacing>-1</VerticalSpacing>
+										<FormControlExtension
+											i:nil="true" />
+										<Style>TitleField</Style>
+									</AxFormControl>
+								</Controls>
+								<ArrangeMethod>Auto</ArrangeMethod>
+								<Style>DetailTitleContainer</Style>
+							</AxFormControl>
+							<AxFormControl xmlns=""
+								i:type="AxFormTabControl">
+								<Name>DetailsBodyTab</Name>
+								<ElementPosition>1610612733</ElementPosition>
+								<FilterExpression>%1</FilterExpression>
+								<Type>Tab</Type>
+								<VerticalSpacing>-1</VerticalSpacing>
+								<FormControlExtension
+									i:nil="true" />
+								<Controls>
+									<AxFormControl xmlns=""
+										i:type="AxFormTabPageControl">
+										<Name>General</Name>
+										<ElementPosition>1431655764</ElementPosition>
+										<FilterExpression>%1</FilterExpression>
+										<HeightMode>Auto</HeightMode>
+										<Type>TabPage</Type>
+										<VerticalSpacing>-1</VerticalSpacing>
+										<WidthMode>Auto</WidthMode>
+										<FormControlExtension
+											i:nil="true" />
+										<Controls />
+										<ArrangeMethod>Auto</ArrangeMethod>
+										<Caption>@SYS2952</Caption>
+										<Scrollbars>Auto</Scrollbars>
+									</AxFormControl>
+								</Controls>
+								<AlignChild>No</AlignChild>
+								<Style>FastTabs</Style>
+							</AxFormControl>
+						</Controls>
+						<PanelStyle>Details</PanelStyle>
+						<Scrollbars>Auto</Scrollbars>
+						<Style>DetailsFormDetails</Style>
+					</AxFormControl>
+				</Controls>
+				<AlignChild>No</AlignChild>
+				<ShowTabs>No</ShowTabs>
+			</AxFormControl>
+		</Controls>
+	</Design>
+	<Parts />
+</AxForm>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>FMBILabHelper</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+using Microsoft.Dynamics.AX.Framework.Analytics.AggregateQuery.QueryModel.Core;
+using Microsoft.Dynamics.AX.Framework.Analytics.Runtime;
+
+
+public class FMBILabHelper
+{
+
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>FMBILab_ExecuteQuery</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Helper method to Read data from an Aggregate Data entity and move to the Temp table required by Lab 10.2
+    ///     
+    /// </summary>
+    
+    public static void FMBILab_ExecuteQuery(str vehicleMakeParameter, TmpDBBIFMRevenueByVehicleModelByMonth tempTable)
+    {
+        try
+        {
+            
+            // Get the aggregate query behind the existing Aggregate data entity FMBIRevenueByVehicleModel
+            AggregateQuery aq = AggregateQueryRun::QueryFromAggregateDataEntity(tablestr(FMBIRevenueByVehicleModel));
+            
+            if (aq != null)
+            {
+
+                // Defne the filter expression using the Vehicle make
+                LevelExpression allMakes = new LevelExpression(dimensionhierarchylevelstr("FMAggregateMeasurements/FMVehicle/VehicleMake/VehicleMake"));
+                LogicalExpression currentMakeFilter = new Microsoft.Dynamics.AX.Framework.Analytics.AggregateQuery.QueryModel.Core.Exists(new MemberExpression(allMakes, vehicleMakeParameter));
+                
+                // Add the filter condition to the orignal query
+                aq.AddSelect(new FilterExpression(SetExpression::ALL, currentMakeFilter));
+
+                // Since the Aggregate Data entity does not have a month column, We need to add months to the existing query
+                //  we can add additional dimension attributes and measures. But we can't remove existing ones at present
+                SetExpression allMonths = new LevelExpression(dimensionhierarchylevelstr("FMAggregateMeasurements/RentalStartDate/Quarter/Quarter"));
+                
+                /// Add the new Set to the orignal query as another column. "As" is an alias that we will provide to this column
+                /// We don't need to provide Aliases for fields sourced from an Aggregate Data entity
+                aq.AddSelect(allMonths.As("Quarter"));
+                
+                /// Create a QueryRun object using the query we have constructed. QueryRun objet enables us to retrieve data
+                AggregateQueryRun queryRun = new AggregateQueryRun(aq);
+
+                ///  Instead of iterating in a loop and reading data from the QueryRun object, we can Bulk move data into the destination Table
+                ///  define the mappins between the dataset of the query result and our target table that we want to populate
+                QueryResultToDatasourceColumnMappings mappings = new QueryResultToDatasourceColumnMappings();
+                mappings.AddMapping("TotalRevenue", fieldstr(TmpDBBIFMRevenueByVehicleModelByMonth, TotalRevenue));
+                mappings.AddMapping("NumRentals", fieldstr(TmpDBBIFMRevenueByVehicleModelByMonth, NumRentals));
+                mappings.AddMapping("VehicleModel", fieldstr(TmpDBBIFMRevenueByVehicleModelByMonth, VehicleModel));
+                mappings.AddMapping("Quarter", fieldstr(TmpDBBIFMRevenueByVehicleModelByMonth, RentalMonth));
+
+                // execute the query and populate the target table as a bulk move
+                queryRun.RunAndPopulate(tempTable, mappings);
+            }
+        }
+        catch (Exception::CLRError)
+        {
+            SRSProxy::handleClrException(Exception::Error);
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

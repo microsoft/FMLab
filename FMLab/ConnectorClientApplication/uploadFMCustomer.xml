@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <FleetCustomer CellPhone="(188) 555-0101" DriverLicense="S688-8944-8185" Email="adrian.lannin@blueyonderairlines.com" FirstName="Adrian" LastName="Lannin" CustomerGroup="non_mem_1" AddressLine1="245 Howell Street" AddressLine2="" City="New York City" State="NY" ZipCode="99087" Country="US" />
+  <FleetCustomer CellPhone="(456) 555-0103" DriverLicense="V347-3489-2984" Email="andreas@fabrikam.us" FirstName="Andreas" LastName="Dziegiel" CustomerGroup="non_mem_1" AddressLine1="2300 3rd Ave" AddressLine2="Unit 87" City="Seattle" State="WA" ZipCode="90001" Country="US" />
+  <FleetCustomer CellPhone="(777) 555-0102" DriverLicense="B889-1128-6699" Email="josh.bailey@fourthcoffee.com" FirstName="Josh" LastName="Bailey" CustomerGroup="adv_mem_1" AddressLine1="8070 Stratford Street" AddressLine2="" City="Sydney" State="TX" ZipCode="99874" Country="US" />
+  <FleetCustomer CellPhone="(312) 555-0105" DriverLicense="S615-3939-2354" Email="mrina.natarajan@fineartschool.net" FirstName="Mrina" LastName="Natarajan" CustomerGroup="exec_mem_1" AddressLine1="449 Long Street" AddressLine2="Apt 160" City="Bruxelles" State="ID" ZipCode="34213" Country="US" />
+  <FleetCustomer CellPhone="(999) 555-0100" DriverLicense="S468-3184-6541" Email="phil.spencer@adatum.com" FirstName="Phil" LastName="Spencer" CustomerGroup="adv_mem_1" AddressLine1="167 BBN Way" AddressLine2="" City="Orlando" State="FL" ZipCode="77899" Country="US" />
+  <FleetCustomer CellPhone="(345) 555-0104" DriverLicense="B923-2381-9954" Email="tony.smith@lucernepublishing.com" FirstName="Tony" LastName="Smith" CustomerGroup="non_mem_1" AddressLine1="3456 Ligouri St" AddressLine2="Apt 160" City="San Francisco" State="CA" ZipCode="75645" Country="US" />
+  <FleetCustomer CellPhone="(345) 555-0104" DriverLicense="B923-2381-1000" Email="kuntal@lucernepublishing.com" FirstName="Kuntal" LastName="Smith" CustomerGroup="non_mem_1" AddressLine1="3456 Ligouri St" AddressLine2="Apt 160" City="San Francisco" State="CA" ZipCode="75645" Country="US" />
+</Document>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxAggregateDataEntity xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>FMBIRevenueByVehicleModel</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+public class FMBIRevenueByVehicleModel extends common
+{
+}
+]]></Declaration>
+		<Methods />
+	</SourceCode>
+	<AggregateViewDataSource>
+		<Name>DataSource</Name>
+		<Measurement>FMAggregateMeasurements</Measurement>
+		<MeasureGroups />
+	</AggregateViewDataSource>
+	<FieldGroups>
+		<AxTableFieldGroup>
+			<Name>AutoReport</Name>
+			<Fields />
+		</AxTableFieldGroup>
+		<AxTableFieldGroup>
+			<Name>AutoLookup</Name>
+			<Fields />
+		</AxTableFieldGroup>
+		<AxTableFieldGroup>
+			<Name>AutoIdentification</Name>
+			<AutoPopulate>Yes</AutoPopulate>
+			<Fields />
+		</AxTableFieldGroup>
+		<AxTableFieldGroup>
+			<Name>AutoSummary</Name>
+			<Fields />
+		</AxTableFieldGroup>
+		<AxTableFieldGroup>
+			<Name>AutoBrowse</Name>
+			<Fields />
+		</AxTableFieldGroup>
+	</FieldGroups>
+	<Fields>
+		<AxAggregateDataEntityField xmlns:d3p1="Microsoft.Dynamics.AX.Metadata.V2"
+			i:type="d3p1:AxAggregateDataEntityMappedField">
+			<Name>NumRentals</Name>
+			<d3p1:ExtendedDataType>BIRCount</d3p1:ExtendedDataType>
+			<d3p1:Measure>NoRentals</d3p1:Measure>
+			<d3p1:MeasureGroup>FMRentalCharges</d3p1:MeasureGroup>
+		</AxAggregateDataEntityField>
+		<AxAggregateDataEntityField xmlns:d3p1="Microsoft.Dynamics.AX.Metadata.V2"
+			i:type="d3p1:AxAggregateDataEntityMappedField">
+			<Name>TotalRevenue</Name>
+			<d3p1:ExtendedDataType>FMExtendedAmount</d3p1:ExtendedDataType>
+			<d3p1:Measure>TotalRevenue</d3p1:Measure>
+			<d3p1:MeasureGroup>FMRentalCharges</d3p1:MeasureGroup>
+		</AxAggregateDataEntityField>
+		<AxAggregateDataEntityField xmlns:d3p1="Microsoft.Dynamics.AX.Metadata.V2"
+			i:type="d3p1:AxAggregateDataEntityMappedField">
+			<Name>VehicleModel</Name>
+			<d3p1:Attribute>VehicleModel</d3p1:Attribute>
+			<d3p1:Dimension>FMVehicle</d3p1:Dimension>
+			<d3p1:ExtendedDataType>FMVehicleModelId</d3p1:ExtendedDataType>
+			<d3p1:MeasureGroup>FMRentalCharges</d3p1:MeasureGroup>
+		</AxAggregateDataEntityField>
+	</Fields>
+	<Keys />
+	<Relations />
+</AxAggregateDataEntity>

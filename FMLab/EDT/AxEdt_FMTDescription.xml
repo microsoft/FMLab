@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxEdt xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns=""
+	i:type="AxEdtString">
+	<Name>FMTDescription</Name>
+	<HelpText>@SYS78674</HelpText>
+	<Label>@SYS104939</Label>
+	<ArrayElements />
+	<Relations />
+	<TableReferences />
+	<StringSize>255</StringSize>
+</AxEdt>
