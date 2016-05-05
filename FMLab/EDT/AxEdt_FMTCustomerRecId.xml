@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxEdt xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns=""
+	i:type="AxEdtInt64">
+	<Name>FMTCustomerRecId</Name>
+	<Extends>RefRecId</Extends>
+	<HelpText>@SYS78674</HelpText>
+	<Label>@FMT49</Label>
+	<ReferenceTable>FMTCustomer</ReferenceTable>
+	<ArrayElements />
+	<Relations />
+	<TableReferences />
+</AxEdt>

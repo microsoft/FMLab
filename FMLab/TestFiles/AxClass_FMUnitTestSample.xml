@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>FMUnitTestSample</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class FMUnitTestSample extends SysTestCase
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>setup</Name>
+				<Source><![CDATA[
+public void setup()
+{
+    //reset the test data just to be sure things are clean
+    FMDataHelper::main(null);
+}
+]]></Source>
+			</Method>
+			<Method>
+				<Name>testFMTotalsEngine</Name>
+				<Source><![CDATA[
+public void testFMTotalsEngine()
+{
+    FMRental rental;
+    FMTotalsEngine fmTotals;
+    FMRentalTotal fmRentalTotal;
+    FMRentalCharge rentalCharge;
+    FMRentalTotal expectedtotal;
+    str rentalID = '000022';
+    //find a known rental
+    rental = FMRental::find(rentalID);
+    
+    //Get the rental charges associated with the rental
+    //Data is seeded randomly so this will change from run to run
+    select sum(ExtendedAmount) from rentalCharge
+            where rentalCharge.RentalId == rental.RentalId;
+
+    fmTotals = FMTotalsEngine::construct();
+    fmTotals.calculateRentalVehicleRate(rental);
+    
+    //Get the totals from the engine
+    fmRentalTotal = fmTotals.totals(rental);
+    //Set the expected amount
+    expectedTotal = rental.VehicleRateTotal + rentalCharge.ExtendedAmount;
+    
+    this.assertEquals(expectedTotal,fmRentalTotal);
+}
+]]></Source>
+			</Method>
+			<Method>
+				<Name>testFMCarValidateField</Name>
+				<Source><![CDATA[
+public void testFMCarValidateField()
+{
+    FMCarClass fmCar;
+    
+    fmCar.NumberOfDoors = -1;
+    this.assertFalse(fmCar.validateField(Fieldnum("FMCarClass", "NumberOfDoors")));
+    
+    fmCar.NumberOfDoors = 4;
+    this.assertTrue(fmCar.validateField(Fieldnum("FMCarClass", "NumberOfDoors")));
+}
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
