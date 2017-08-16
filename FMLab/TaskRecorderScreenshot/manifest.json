@@ -1,5 +1,5 @@
 {
-  "name": "D365 for Operations Task Recorder Screenshot Extension",
+  "name": "Dynamics 365 for Finance and Operations Task Recorder Screenshot Extension",
   "version": "1.0.0.2",
   "description": "Screenshot capture used for D365 for Operations task recorder.",
   "background": {
