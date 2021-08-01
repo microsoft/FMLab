@@ -7,7 +7,7 @@
   },
   "content_scripts": [
 	  {
-		"matches": ["https://*.dynamics.com/*"],
+		"matches": ["https://*.dynamics.com/*","https://pli-d365-uat.sandbox.operations.dynamics.com"],
 		"js": ["screenshot.js"]
 	  }
   ],
