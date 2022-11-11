@@ -1,9 +1,9 @@
 {
   "name": "Dynamics 365 for Finance and Operations Task Recorder Screenshot Extension",
-  "version": "1.0.0.2",
+  "version": "1.0.0.3",
   "description": "Screenshot capture used for Dynamics 365 for Finance and Operations task recorder.",
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
   "content_scripts": [
 	  {
@@ -12,7 +12,9 @@
 	  }
   ],
   "permissions": [
-    "tabs", "<all_urls>"
+    "tabs",
+    "nativeMessaging"
   ],
-  "manifest_version": 2
+  "host_permissions": ["<all_urls>"],
+  "manifest_version": 3
 }
