@@ -1,5 +1,5 @@
 document.addEventListener("screenshot", function() {
-    chrome.extension.sendMessage({name: 'screenshot'}, function(response) {
+    chrome.runtime.sendMessage({name: 'screenshot'}, function(response) {
         var dataURL = response.screenshotUrl;
         var image = new Image();
 		
